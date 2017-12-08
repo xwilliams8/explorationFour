@@ -1,0 +1,21 @@
+//@import is used to connect other partial files to the main styling page, it allows developers a chance to clean up the code and keep different things together.
+
+//@extend lets you share css characteristics among selectors so essentially, both .header and .para should be $oldgold
+
+@import 'variables';
+
+.header{
+    @extend .para;
+    color: $oldgold;
+}
+
+//Mixins let you make groups of CSS declarations that can be reused througout the website. Values can even be passed with a mixin to allow flexibility. In this example the mixin border-radius will be set with 10px and anything that includes this will have the same effect. The SCSS is taken and generated into normal CSS but the developer doesn't see that part. @include is used to include the mixin.
+
+@mixin border-radius($radius) {
+    
+    border-radius: $radius;
+}
+
+.para{ 
+    @include border-radius(10px); 
+}
